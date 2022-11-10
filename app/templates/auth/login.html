@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block page_name2 %}LOGIN{% endblock page_name2 %}
+{% block link2 %}{{ url_for('auth.register') }}{% endblock link2 %}
+{% block link_name %}Register{% endblock link_name %}
+{% block content %}
+<fieldset class='field_login'>    
+    <h1>Login!!</h1>
+    {% for message in get_flashed_messages() %}
+        <div class='flashes'>{{ message }}</div>
+    {% endfor %}
+        <form class='register_form' method='POST'>
+            <label for='username'>Username:</label>
+            <input name='username' id='username' placeholder='Username...' required /> <br/>
+            <label for='password'>Password:</label>
+            <input type='password' name='password' id='password' placeholder='Password...' required /> 
+            <button class="button" type='submit'><b>Login</b></button>
+        </form> 
+    </fieldset>
+{% endblock %}

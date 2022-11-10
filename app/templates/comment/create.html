@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}New Comment{% endblock title %}
+
+{% block page_name %}New Comment{% endblock page_name %}
+{% block link1 %}{{ url_for('comment.index')}}{% endblock link1 %}
+{% block link1name %}Back{% endblock link1name %}
+
+{% block content %}
+    <fieldset class='field_create'>
+        <form method='POST'>
+            <h1>New Comment</h1>
+            <label for='comment'>Comment:</label>
+            <input name='comment' id='comment' placeholder='New Comment...' required />
+            <button type='submit'>Create</button>
+        </form>
+    </fieldset>
+{% endblock content %}
+

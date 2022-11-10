@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Main Page
+{% endblock %}
+
+{% block page_name %}{{ g.user['username'] }}{% endblock page_name %}
+{% block link1 %}{{ url_for('auth.logout') }}{% endblock link1 %}
+{% block link1name %}Logout{% endblock link1name %}
+{% block link_1 %}{{ url_for('auth.delete_user') }}{% endblock link_1 %}
+{% block link_1_name %}Delete Account{% endblock link_1_name %}
+
+{% block content %}
+
+    {% if g.user %}
+    <a class='action' id='create' href="{{ url_for('comment.create') }}">New Comment</a>
+    {% endif %}
+
+    <ul class='comment_list'>
+        <h1>Your Comments</h1>
+        {% for comment in user_comments %}
+        <li class='comment'>
+            <div>
+                {{ comment['opinion'] }}
+                <div class='date'>{{ comment['created_at'].strftime('%Y-%m-%d') }}</div>
+                <a class='action' href="{{ url_for('comment.update', id=comment['id']) }}"><b>Update</b></a>
+                <a class='action' href="{{ url_for('comment.delete', id=comment['id']) }}"><b>Delete</b></a>          
+            </div>
+        </li>
+        {% if not loop.last %}
+            <hr class='hr'/>
+        {% endif %}
+        {% endfor %}     
+    </ul>
+{% endblock %}

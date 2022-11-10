@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Update Comment{% endblock title %}
+
+{% block page_name %}Update{% endblock page_name %}
+{% block link1 %}{{ url_for('comment.index') }}{% endblock link1 %}
+{% block link1name %}Back{% endblock link1name %}
+
+{% block content %}
+    <fieldset class='field_update'>
+        <form method='POST'>
+            <h1>Update Comment</h1>
+            <label for='update'>Update</label>
+            <input name='update' id='update' placeholder='Update Comment...' required/>
+            <button type='submit'>Update</button>
+        </form>
+    </fieldset>
+{% endblock content %}

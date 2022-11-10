@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }} />
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <ul class='menu'>
+        {% if g.user %}
+            <li class='main'><h1>{% block page_name %}{% endblock page_name %}</h1></li>
+            <li class='link'><a href = '{% block link1 %}{% endblock link1 %}'><h1>{% block link1name %}{% endblock link1name %}</h1></a></li>
+            <li class='link'><a href='{% block link_1 %}{% endblock link_1 %}'><h1>{% block link_1_name %}{% endblock link_1_name %}</h1></a></li>
+        {% else %}
+            <li class='main'><h1>{% block page_name2 %}{% endblock page_name2 %}</h1></li>
+            <li class='link'><a href="{% block link2 %}{% endblock link2 %}"><h1>{% block link_name %}{% endblock link_name %}</h1></a></li>
+        {% endif %}
+    </ul>
+    <div class='content'>
+        {% block content %}{% endblock content %}
+    </div>
+</body>
+</html>
