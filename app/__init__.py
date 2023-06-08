@@ -3,6 +3,7 @@ from flask import Flask, redirect, render_template
 
 def create_app():
     app = Flask(__name__)
+    print("jajaja")
 
     app.config.from_mapping(
         SECRET_KEY = 'mykey',
